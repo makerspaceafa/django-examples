@@ -5,7 +5,6 @@
 # Non convetional virtualenv namings and wildcard version
 env/
 env*/
-static/
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,vscode,django,python,venv
