@@ -70,32 +70,32 @@
 
                 {# Se é sunny, vai ser só sunny #}
                 {% if 'sunny' in weather_today %}
-                    <img class="wobble-1" src="{% static 'tutorial/sunny.png' %}" alt="Sun">
+                    <img class="wobble-1" src="{% static 'simple_weather/sunny.png' %}" alt="Sun">
 
                 {# Os outros casos podem ser uma combinação de várias imagens (ex: weather_today = ['cloud2', 'rain1']) #}
                 {% else %}
                     {% if 'cloudy1' in weather_today %}
-                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-1" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
                     {% endif %}
                     {% if 'cloudy2' in weather_today %}
-                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
-                        <img class="wobble-2" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-1" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-2" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
                     {% endif %}
                     {% if 'cloudy3' in weather_today %}
-                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
-                        <img class="wobble-2" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
-                        <img class="wobble-3" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-1" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-2" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-3" src="{% static 'simple_weather/cloudy.png' %}" alt="Cloud">
                     {% endif %}
                     {% if 'rain1' in weather_today %}
-                        <img class="wobble-3" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-3" src="{% static 'simple_weather/rain.png' %}" alt="Rain Cloud">
                     {% endif %}
                     {% if 'rain3' in weather_today %}
-                        <img class="wobble-1" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
-                        <img class="wobble-2" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
-                        <img class="wobble-3" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-1" src="{% static 'simple_weather/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-2" src="{% static 'simple_weather/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-3" src="{% static 'simple_weather/rain.png' %}" alt="Rain Cloud">
                     {% endif %}
                     {% if 'snow' in weather_today %}
-                        <img class="wobble-1" src="{% static 'tutorial/snow.png' %}" alt="Snow Cloud">
+                        <img class="wobble-1" src="{% static 'simple_weather/snow.png' %}" alt="Snow Cloud">
                     {% endif %}
                 {% endif %}
             </div>

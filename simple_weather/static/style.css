@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    color: white;
+    font-size: large;
+    font-family: 'Archivo', sans-serif;
+}
+p span {
+    color: #9c2ea1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #fd9301;
+    font-family: 'Open Sans', sans-serif;
+    padding: 5px 0;
+}
+
+#submit {
+    margin: 10px 0 0;
+}
+
+@media (min-width: 800px) {
+    form {
+        flex-direction: row;
+    }
+    label {
+        padding: 0 5px 0 0;
+    }
+    input {
+        margin: 0 10px 0 0;
+    }
+    #submit {
+        margin: 0;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: auto;
+    padding: 0 5%;
+}
+
+.canvas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.canvas img {
+    flex: 1 1 auto;
+    width: 33%;
+    max-width: 200px;
+}
+
+.wobble-1 {
+    animation: 10s cubic-bezier(0.52, 1.19, 0.46,-0.39) 0s infinite normal both running wobble;
+}
+.wobble-2 {
+    animation: 9s cubic-bezier(.77,1.43,.37,-0.29) 0s infinite normal both running wobble;
+}
+.wobble-3 {
+    animation: 8s cubic-bezier(.66,.84,0,-0.24) 0s infinite normal both running wobble;
+}
+
+@keyframes wobble {
+    from { transform: rotate(0deg) translateX(10%) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(10%) rotate(-360deg); }
+}
