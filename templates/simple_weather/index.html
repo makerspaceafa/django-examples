@@ -1,0 +1,105 @@
+{# Estes comentários fazem parte da linguagem de templates do django e não vão aparecer no HTML público da página! #}
+{# Só os comentários HTML (<!-- comentário -->) é que vão ser colocados na página final #}
+
+{# Carregar as static files para podermos inserir as nossas imagens de forma fácil #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- Mobile first design! Explicação do 'viewport': https://www.w3schools.com/css/css_rwd_viewport.asp -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Ligar o nosso ficheiro de css -->
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+
+        <!-- Title: o que aparece no browser tab -->
+        <title>Look ma, no hands!</title>
+    </head>
+    <body>
+        <!--
+            O nosso layout é base de flexbox (https://css-tricks.com/snippets/css/a-guide-to-flexbox/):
+
+                O 'container' é o elemento pai
+                    - Direção vertical (main axis: vertical, cross axis: horizontal)
+                    - Align-items: center -> Alinha os elementos filho pelo eixo vertical (movimentando-os no cross axis)
+                    - O 'header' e o 'canvas' são elementos filhos.
+
+                Por sua vez, o 'canvas' é o elemento pai de outra montagem flexbox:
+                    - Direção horizontal (main axis: horizontal, cross axis: vertical)
+                    - Justify-contents: center -> Junta os elementos filho no centro (movimentando-os no main axis)
+
+            Esta diferenciação do main/cross axis foi enfatizada porque afeta a propriedade que temos que usar!
+                * Align-items move os elementos filho no cross axis do pai.
+                * Justify-content move os elementos filho no main axis do pai.
+        -->
+
+        <div class="container">
+            <div class="header">
+                <p><span>Location API response:</span> {{ location }}</p>
+
+                <form accept-charset="UTF-8" autocomplete="off" method="POST">
+                    {% csrf_token %}
+                    <label for="lat">Latitude: </label>
+                    {# Pre-prenchemos o campo da latitude com o valor atual da latitude #}
+                    <input id="lat" name="lat" type="text" value="{{ lat }}"/>
+                    <label for="long">Longitude: </label>
+                    {# Pre-prenchemos o campo da longitude com o valor atual da longitude #}
+                    <input id="long" name="long" type="text" value="{{ long }}"/>
+                    <input id="submit" type="submit">
+                </form>
+
+                <p><span>Weather API response:</span> {{ weather_api }}</p>
+                <p><span>O nosso processamento: </span>{{ weather_today }}</p>
+            </div>
+
+            <div class="canvas">
+                <!--
+                    No canvas é onde colocamos e mexemos as imagens correspondentes aos estados que passámos na view.
+                    Todas as imagens que passarmos aqui vão ficar distribuídas em linha, centradas na página.
+                    Isto foi desenhado para ter entre 1 e 3 imagens, não sei bem o que acontece se meter 4 ¯\_(ツ)_/¯.
+
+                    A animação é feita só à base de CSS!
+                    >>> https://www.w3schools.com/css/css3_animations.asp <<<
+                -->
+
+                {# Recorrendo à linguagem de templates do django, usamos aqui uma sequência de ifs para ver o que     #}
+                {# foi passado dentro da variável "weather_today" e fazer display das imagens certas para a situação. #}
+
+                {# Se é sunny, vai ser só sunny #}
+                {% if 'sunny' in weather_today %}
+                    <img class="wobble-1" src="{% static 'tutorial/sunny.png' %}" alt="Sun">
+
+                {# Os outros casos podem ser uma combinação de várias imagens (ex: weather_today = ['cloud2', 'rain1']) #}
+                {% else %}
+                    {% if 'cloudy1' in weather_today %}
+                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                    {% endif %}
+                    {% if 'cloudy2' in weather_today %}
+                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-2" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                    {% endif %}
+                    {% if 'cloudy3' in weather_today %}
+                        <img class="wobble-1" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-2" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                        <img class="wobble-3" src="{% static 'tutorial/cloudy.png' %}" alt="Cloud">
+                    {% endif %}
+                    {% if 'rain1' in weather_today %}
+                        <img class="wobble-3" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                    {% endif %}
+                    {% if 'rain3' in weather_today %}
+                        <img class="wobble-1" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-2" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                        <img class="wobble-3" src="{% static 'tutorial/rain.png' %}" alt="Rain Cloud">
+                    {% endif %}
+                    {% if 'snow' in weather_today %}
+                        <img class="wobble-1" src="{% static 'tutorial/snow.png' %}" alt="Snow Cloud">
+                    {% endif %}
+                {% endif %}
+            </div>
+
+        </div>
+    </body>
+</html>
