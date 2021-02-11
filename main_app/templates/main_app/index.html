@@ -1,0 +1,31 @@
+{# Estes comentários fazem parte da linguagem de templates do django e não vão aparecer no HTML público da página! #}
+{# Só os comentários HTML (<!-- comentário -->) é que vão ser colocados na página final #}
+
+{# Carregar as static files para podermos inserir as nossas imagens de forma fácil #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'main_app/style.css' %}">
+        <title>Look ma, no hands!</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Available Apps:</h1>
+            </div>
+
+            <div class="canvas">
+                <ul>
+                    {% for path in app_urls %}
+                        <li><a href="/{{ path.0 }}">{{ path.1 }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    </body>
+</html>

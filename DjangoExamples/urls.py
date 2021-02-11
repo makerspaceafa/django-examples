@@ -14,11 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from simple_weather import views as sw
+from main_app import views as main
 
 urlpatterns = [
+    path('', main.index),
+    # ONLY EDIT BELOW
+    # You can enable admin if you want
     # path('admin/', admin.site.urls),
-    path('sw', sw.index)
+
+    # To add a simple url just remember to provide a name!
+    # This name is what shows up on the landing page index.
+    path('sw/', sw.index, name='simple_weather'),
+
+    # To include a urls file, remember to provide an app name!
+    # This name will show on the landing page index.
+    # If you provide an instance namespace, that will show up instead.
+    # path('some-app/', include(('some_app.urls', 'some_app'))
 ]
