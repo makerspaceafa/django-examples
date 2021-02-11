@@ -14,6 +14,7 @@ Isto é automático, desde que adicionem as vossas apps da maneira correta no `u
 ### Demo Apps:
 
 - **Simple Weather**  
+  ![](readme_images/simple_weather.png)
   Esta app mostra uma visualização simples do estado de tempo nas coordenadas GPS especificadas.  
   Desafios:
     - Garantir o input de coordenadas certas (input validation).
