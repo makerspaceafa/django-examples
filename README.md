@@ -1,8 +1,17 @@
 ## Django Examples
+
+![](https://img.shields.io/badge/python-3.8-blue)
+
 Este projeto tem como objetivo agregar várias apps para exemplificar / demonstrar 
 capacidades do django.
 
-Muitas delas incluem desafios para melhorar a sua funcionalidade / performance que podem usar para desenvolver e praticar as vossas capacidades de **Python** e **Django**.
+Muitas delas (ok só tem uma neste momento mas calma) incluem desafios para melhorar a sua funcionalidade / performance que podem usar para desenvolver e praticar as vossas capacidades de **Python** e **Django**.
+
+### Instalação / Setup
+1. `git clone https://github.com/rosaqq/django-examples.git`
+2. Dentro da pasta do repositório:
+   1. `pip install -r requirements.txt`
+   2. `python manage.py runserver`
 
 ### Organização
 
