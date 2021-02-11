@@ -156,11 +156,17 @@ def index(request):
         if 'snow' in api_weather:
             our_weather_status.add('snow')
 
+    # todo: use other images (wind, storm, rainsnow, etc)
+    # todo: display more information (wind speed / direction, temperature, etc)
     # ------------------------------------------------------------------------------------------------------------------
 
     # ------ Render do template ----------------------------------------------------------------------------------------
     # Agora que já temos a 'location' do Geolocation API e o weather status do Weather API...
     # ... é só chamar o render com o nosso template e passar essa informação!
+
+    # todo: improvements -> this page takes 4-5s to load because of waiting for the weather / geolocation APIs
+    #  Can we improve load times by using asyncio? Cache results?
+    #  Challenge: find out the best way to optimize the loading time!
 
     return render(request, 'simple_weather/index.html',
                   {'weather_api': api_weather, 'weather_today': our_weather_status,
