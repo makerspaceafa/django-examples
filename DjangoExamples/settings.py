@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # introduzir aqui as novas apps
     'simple_weather.apps.SimpleWeatherConfig',
+    'hello_world.apps.HelloWorldConfig',
     'main_app.apps.MainAppConfig',
 ]
 
@@ -56,7 +58,8 @@ ROOT_URLCONF = 'DjangoExamples.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'simple_weather/templates']
+        # introduzir aqui as pastas templates
+        'DIRS': [BASE_DIR / 'simple_weather/templates' / 'hello_world/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {

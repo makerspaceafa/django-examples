@@ -28,7 +28,7 @@ urlpatterns = [
     # To add a simple url just remember to provide a name!
     # This name is what shows up on the landing page index.
     path('sw/', sw.index, name='simple_weather'),
-
+    path('hw/', include('hello_world.urls', 'hello_world')),
     # To include a urls file, remember to provide an app name!
     # This name will show on the landing page index.
     # If you provide an instance namespace, that will show up instead.
