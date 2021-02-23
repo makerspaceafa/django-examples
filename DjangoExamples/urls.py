@@ -31,6 +31,7 @@ urlpatterns = [
     path('sw/', sw.index, name='simple_weather'),
     path('hw/', include('hello_world.urls', 'hello_world')),
     path('afa/', afa.index, name='dia_afa'),
+    path('tasks/', include('tasks.urls', 'tasks')),
     # To include a urls file, remember to provide an app name!
     # This name will show on the landing page index.
     # If you provide an instance namespace, that will show up instead.
