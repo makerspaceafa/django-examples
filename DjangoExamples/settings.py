@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # introduzir aqui as novas apps
     'simple_weather.apps.SimpleWeatherConfig',
     'hello_world.apps.HelloWorldConfig',
+    'dia_afa.apps.DiaAfaConfig',
     'main_app.apps.MainAppConfig',
 ]
 
@@ -59,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # introduzir aqui as pastas templates
-        'DIRS': [BASE_DIR / 'simple_weather/templates' / 'hello_world/templates']
+        'DIRS': [BASE_DIR / 'simple_weather/templates' / 'hello_world/templates' / 'dia_afa/templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
