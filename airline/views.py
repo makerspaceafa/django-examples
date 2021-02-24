@@ -16,7 +16,7 @@ def index(request):
 
 def user(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
+        return HttpResponseRedirect(reverse("airline:login"))
     return render(request, "airline/user.html")
 
 
@@ -44,7 +44,7 @@ def book(request, flight_id):
         except Passenger.DoesNotExist:
             return HttpResponseBadRequest("Bad Request: passenger does not exist")
         passenger.flights.add(flight)
-        return HttpResponseRedirect(reverse("flight", args=(flight_id,)))
+        return HttpResponseRedirect(reverse("airline:flight", args=(flight_id,)))
 
 
 def login_view(request):
