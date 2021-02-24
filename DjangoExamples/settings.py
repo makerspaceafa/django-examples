@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'hello_world.apps.HelloWorldConfig',
     'dia_afa.apps.DiaAfaConfig',
     'tasks.apps.TasksConfig',
+    'airline.apps.AirlineConfig',
     'main_app.apps.MainAppConfig',
 ]
 
@@ -61,8 +62,12 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # introduzir aqui as pastas templates
-        'DIRS': [BASE_DIR / 'simple_weather/templates' / 'hello_world/templates' / 'dia_afa/templates' / 'tasks/templates' ]
-        ,
+        'DIRS': [BASE_DIR /
+                 'simple_weather/templates' /
+                 'hello_world/templates' /
+                 'dia_afa/templates' /
+                 'tasks/templates' /
+                 'airline/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
