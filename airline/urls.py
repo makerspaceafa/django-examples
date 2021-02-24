@@ -20,7 +20,6 @@ from airline import views
 app_name = 'airline'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path("", views.index, name="index"),
     path("flights/<int:flight_id>", views.flight, name="flight"),
     path("flights/<int:flight_id>/book", views.book, name="book"),

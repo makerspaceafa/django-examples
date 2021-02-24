@@ -24,7 +24,7 @@ urlpatterns = [
     path('', main.index),
     # ONLY EDIT BELOW
     # You can enable admin if you want
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
 
     # To add a simple url just remember to provide a name!
     # This name is what shows up on the landing page index.
