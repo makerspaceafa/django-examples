@@ -19,6 +19,7 @@ from django.urls import path, include
 from simple_weather import views as sw
 from main_app import views as main
 from dia_afa import views as afa
+from hello_world import views as hw
 
 urlpatterns = [
     path('', main.index),
@@ -26,10 +27,14 @@ urlpatterns = [
     # You can enable admin if you want
     path('admin/', admin.site.urls),
 
+    path('hw/', hw.index, name='index'),
+    path('hw/<str:name>', hw.hello, name='hello'),
+    path('hw/<str:name>/day', hw.hello_day, name='hello_day'),
+
     # To add a simple url just remember to provide a name!
     # This name is what shows up on the landing page index.
     path('sw/', sw.index, name='simple_weather'),
-    path('hw/', include('hello_world.urls', 'hello_world')),
+    # path('hw/', include('hello_world.urls', 'hello_world')),
     path('afa/', afa.index, name='dia_afa'),
     path('tasks/', include('tasks.urls', 'tasks')),
     path('airline/', include('airline.urls', 'airline')),
@@ -37,4 +42,5 @@ urlpatterns = [
     # This name will show on the landing page index.
     # If you provide an instance namespace, that will show up instead.
     # path('some-app/', include(('some_app.urls', 'some_app'))
+
 ]

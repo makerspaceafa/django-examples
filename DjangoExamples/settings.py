@@ -62,12 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # introduzir aqui as pastas templates
-        'DIRS': [BASE_DIR /
-                 'simple_weather/templates' /
-                 'hello_world/templates' /
-                 'dia_afa/templates' /
-                 'tasks/templates' /
-                 'airline/templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -11,9 +11,11 @@ def index(request):
     return HttpResponse('Hello, world!')
 
 
-# vai render um ficheiro html onde podemos por mais informação de forma organizada
+# Como enviar conteúdo para o servidor -> através do url
 def hello(request, name):
     # return HttpResponse(f"Hello, {name.capitalize()}!")
+
+    # vai render um ficheiro html onde podemos por mais informação de forma organizada
     return render(request, 'hello_world/index.html', {
         'name': name.capitalize()
     })
