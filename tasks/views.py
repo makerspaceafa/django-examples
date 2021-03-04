@@ -6,11 +6,12 @@ from django.shortcuts import render, reverse
 
 
 class NewTaskForm(forms.Form):
+    # tipos de fields -> Documentação -> Google it
     task = forms.CharField(label="New Task")
     # priority = forms.IntegerField(label="Priority", min_value=1, max_value=5)
 
 
-tasks = ['alfa', 'bravo', 'charlie']
+tasks = ['alpha', 'bravo', 'charlie']
 
 
 def index(request):

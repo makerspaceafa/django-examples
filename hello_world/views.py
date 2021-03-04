@@ -9,6 +9,7 @@ from django.shortcuts import render
 # Vai gerar uma HttpResponse, ou seja imprime o código html que estiver dentro
 def index(request):
     return HttpResponse('Hello, world!')
+    # return HttpResponse('<h1>Hello, world!</h1>')
 
 
 # Como enviar conteúdo para o servidor -> através do url
@@ -17,10 +18,11 @@ def hello(request, name):
 
     # vai render um ficheiro html onde podemos por mais informação de forma organizada
     return render(request, 'hello_world/index.html', {
-        'name': name.capitalize()
+        'name': name
     })
 
 
+# Podemos utilizar lógica python para desenvolver e processar os dados
 def hello_day(request, name):
     day = datetime.today()
     return render(request, 'hello_world/day.html', {

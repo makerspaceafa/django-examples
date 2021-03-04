@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>É dia da AFA?</title>
-    </head>
-    <body>
-        <h1>Tasks</h1>
-        <ul>
-            {% for task in tasks %}
-                <li>{{ task }}</li>
-            {% empty %}
-                <li>No tasks.</li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'tasks:add' %}">Add New Task</a>
-    </body>
-</html>
+{% extends "tasks/layout.html" %}
+
+{% block body %}
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+        {% empty %}
+            <li>No tasks.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasks:add' %}">Add New Task</a>
+{% endblock %}
+
+{% comment %}
+    <ul>
+        <li>alpha</li>
+        <li>bravo</li>
+        <li>charlie</li>
+    </ul>
+{% endcomment %}

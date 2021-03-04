@@ -21,6 +21,7 @@ from main_app import views as main
 from dia_afa import views as afa
 from hello_world import views as hw
 
+
 urlpatterns = [
     path('', main.index),
     # ONLY EDIT BELOW
